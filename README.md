@@ -32,8 +32,9 @@ To provide a more complete example and showcase the use of P/Invoke for querying
 
 ### Navigate to the Project Directory
 
-    ```bash
-     cd VbUserAccountTypeChecker
+   ```bash
+   cd VbUserAccountTypeChecker
+
 
 ### Build the Project
 
