@@ -42,17 +42,17 @@ Open the project in Visual Studio and build it to generate the executable.
 
 ### Usage
 
-**1. Run the Application**
+   **1. Run the Application**
 
-Execute the built application from the command line or Visual Studio. It will output the type of user account under which it is currently running.
+      Execute the built application from the command line or Visual Studio. It will output the type of user account under which it is currently running.
 
 ```bash
 VbUserAccountTypeChecker.exe
 ```
 
-**2. Review Output**
+   **2. Review Output**
 
-The application will display the account type: SYSTEM, ADMIN, or USER.
+      The application will display the account type: SYSTEM, ADMIN, or USER.
 
 ### Contributing
 
