@@ -40,4 +40,22 @@ To provide a more complete example and showcase the use of P/Invoke for querying
 
 Open the project in Visual Studio and build it to generate the executable.
 
-   
+### Usage
+
+**1. Run the Application**
+
+Execute the built application from the command line or Visual Studio. It will output the type of user account under which it is currently running.
+
+```bash
+VbUserAccountTypeChecker.exe
+```
+
+**2. Review Output**
+
+The application will display the account type: SYSTEM, ADMIN, or USER.
+
+### Contributing
+
+Contributions to enhance the functionality or improve the integration are welcome. Please refer to the project's issues page for open tasks and discussions.
+
+
