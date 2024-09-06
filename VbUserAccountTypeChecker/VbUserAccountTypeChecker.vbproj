@@ -9,6 +9,7 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <Copyright>Simple Coders</Copyright>
 	<SupportedOSPlatform>Windows10.0</SupportedOSPlatform>
+	<Title>VbUser</Title>
   </PropertyGroup>
 
   <ItemGroup>

@@ -1,3 +1,5 @@
+Imports VbUserAccountTypeChecker.Application
+
 ''' <author>
 ''' Sam (ident)
 ''' Twitter: <see href="https://twitter.com/1d3nt">https://twitter.com/1d3nt</see>
@@ -42,17 +44,8 @@ Module Program
     ''' </remarks>
     <SuppressMessage("Style", "IDE0060:Remove unused parameter", Justification:="Standard Main method parameter signature.")>
     Sub Main(args As String())
-        Dim services As New ServiceCollection()
-        services.AddTransient(Of IProcessTokenManager, ProcessTokenManager)()
-        services.AddTransient(Of IUserPrivilegesDeterminer, UserPrivilegesDeterminer)()
-        services.AddTransient(Of IUserAccountService, UserAccountService)()
-        services.AddTransient(Of ITokenInformationHelper, TokenInformationHelper)()
-        services.AddTransient(Of IWin32ErrorHelper, Win32ErrorHelper)
-        services.AddTransient(Of IUserAccountTypeExtensions, UserAccountTypeExtensions)
-        Dim serviceProvider As IServiceProvider = services.BuildServiceProvider()
-        Dim userAccountService = serviceProvider.GetService(Of IUserAccountService)()
-        Dim friendlyAccountType = userAccountService.GetFriendlyUserAccountType()
-        Console.WriteLine($"You are running as: {friendlyAccountType}")
-        Console.ReadLine()
+        Dim serviceProvider As IServiceProvider = ServiceConfigurator.ConfigureServices()
+        Dim appRunner As New AppRunner(serviceProvider)
+        appRunner.Run()
     End Sub
 End Module

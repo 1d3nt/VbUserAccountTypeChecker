@@ -59,7 +59,7 @@
     ''' <see href="https://learn.microsoft.com/en-us/dotnet/api/system.runtime.versioning.supportedosplatformattribute?view=net-8.0">official documentation</see>.
     ''' </remarks>
     <SupportedOSPlatform("Windows10.0")>
-    Public Class ServiceConfigurator
+    Friend Class ServiceConfigurator
 
         ''' <summary>
         ''' Configures the services for dependency injection.
@@ -112,7 +112,7 @@
         '''   </item>
         ''' </list>
         ''' </remarks>
-        Public Shared Function ConfigureServices() As IServiceProvider
+        Friend Shared Function ConfigureServices() As IServiceProvider
             Dim services As New ServiceCollection()
             services.AddTransient(Of IProcessTokenManager, ProcessTokenManager)()
             services.AddTransient(Of IUserPrivilegesDeterminer, UserPrivilegesDeterminer)()
