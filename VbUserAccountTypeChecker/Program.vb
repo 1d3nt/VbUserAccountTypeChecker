@@ -25,7 +25,7 @@
 ''' features and API levels. For more details on the attribute, visit the 
 ''' <see href="https://learn.microsoft.com/en-us/dotnet/api/system.runtime.versioning.supportedosplatformattribute?view=net-8.0">official documentation</see>.
 ''' </remarks>
-<SupportedOSPlatform("windows10.0")>
+<SupportedOSPlatform("Windows10.0")>
 Module Program
 
     ''' <summary>
@@ -42,10 +42,16 @@ Module Program
     ''' </remarks>
     <SuppressMessage("Style", "IDE0060:Remove unused parameter", Justification:="Standard Main method parameter signature.")>
     Sub Main(args As String())
-        Dim processTokenManager As New ProcessTokenManager()
-        Dim userPrivilegesDeterminer As New UserPrivilegesDeterminer(processTokenManager)
-        Dim accountType = userPrivilegesDeterminer.GetUserAccountType()
-        Dim friendlyAccountType = UserAccountTypeExtensions.ToFriendlyString(accountType)
+        Dim services As New ServiceCollection()
+        services.AddTransient(Of IProcessTokenManager, ProcessTokenManager)()
+        services.AddTransient(Of IUserPrivilegesDeterminer, UserPrivilegesDeterminer)()
+        services.AddTransient(Of IUserAccountService, UserAccountService)()
+        services.AddTransient(Of ITokenInformationHelper, TokenInformationHelper)()
+        services.AddTransient(Of IWin32ErrorHelper, Win32ErrorHelper)
+        services.AddTransient(Of IUserAccountTypeExtensions, UserAccountTypeExtensions)
+        Dim serviceProvider As IServiceProvider = services.BuildServiceProvider()
+        Dim userAccountService = serviceProvider.GetService(Of IUserAccountService)()
+        Dim friendlyAccountType = userAccountService.GetFriendlyUserAccountType()
         Console.WriteLine($"You are running as: {friendlyAccountType}")
         Console.ReadLine()
     End Sub

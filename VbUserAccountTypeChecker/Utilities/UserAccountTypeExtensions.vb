@@ -9,6 +9,7 @@
     ''' types more convenient and readable.
     ''' </remarks>
     Friend Class UserAccountTypeExtensions
+        Implements IUserAccountTypeExtensions
 
         ''' <summary>
         ''' Provides a custom string representation for the <see cref="UserAccountType"/> enum.
@@ -33,7 +34,7 @@
         ''' It helps in displaying user-friendly descriptions of account types.
         ''' </remarks>
         ''' <exception cref="ArgumentException">Thrown when the <paramref name="accountType"/> is not a valid <see cref="UserAccountType"/>.</exception>
-        Friend Shared Function ToFriendlyString(accountType As UserAccountType) As String
+        Friend Function ToFriendlyString(accountType As UserAccountType) As String Implements IUserAccountTypeExtensions.ToFriendlyString
             Select Case accountType
                 Case UserAccountType.System
                     Return "System Account"

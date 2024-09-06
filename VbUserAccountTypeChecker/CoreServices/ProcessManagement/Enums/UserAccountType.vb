@@ -11,7 +11,7 @@
     ''' some members may not be directly referenced in the code, they are retained for completeness and potential future use.
     ''' </remarks>
     <UsedImplicitly>
-    Friend Enum UserAccountType
+    Public Enum UserAccountType
 
         ''' <summary>
         ''' Indicates that the process is running under a system account.

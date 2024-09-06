@@ -12,28 +12,41 @@
     ''' <see href="https://learn.microsoft.com/en-us/dotnet/api/system.runtime.versioning.supportedosplatformattribute?view=net-8.0">official documentation</see>.
     ''' </remarks>
     <SupportedOSPlatform("windows10.0")>
-    Friend Class UserPrivilegesDeterminer
+    Public Class UserPrivilegesDeterminer
+        Implements IUserPrivilegesDeterminer
 
         ''' <summary>
         ''' Manages the security tokens for the current process.
         ''' </summary>
         ''' <remarks>
-        ''' This field holds an instance of the <see cref="ProcessTokenManager"/> class, which is responsible for handling 
+        ''' This field holds an instance of the <see cref="IProcessTokenManager"/> class, which is responsible for handling 
         ''' the security tokens associated with the process. The token manager is used to query and manipulate process tokens 
         ''' to determine the privileges and account type under which the process is running.
         ''' </remarks>
-        Private ReadOnly _processTokenManager As ProcessTokenManager
+        Private ReadOnly _processTokenManager As IProcessTokenManager
+
+        ''' <summary>
+        ''' Provides methods for retrieving token information.
+        ''' </summary>
+        ''' <remarks>
+        ''' This field holds an instance of the <see cref="ITokenInformationHelper"/> interface, which is responsible for safely 
+        ''' retrieving token information from a process. This helper manages memory allocation and cleanup during the retrieval process.
+        ''' </remarks>
+        Private ReadOnly _tokenInformationHelper As ITokenInformationHelper
 
         ''' <summary>
         ''' Initializes a new instance of the <see cref="UserPrivilegesDeterminer"/> class.
         ''' </summary>
-        ''' <param name="tokenManager">The process token manager.</param>
+        ''' <param name="processTokenManager">The process token manager.</param>
+        ''' <param name="tokenInformationHelper">An instance of <see cref="ITokenInformationHelper"/>. This instance is provided via dependency injection and used to retrieve token information.</param>
         ''' <remarks>
-        ''' The constructor initializes the <see cref="_processTokenManager"/> field with the provided <paramref name="tokenManager"/>. 
-        ''' This manager is used to interact with process tokens and determine user privileges.
+        ''' The constructor initializes the <see cref="_processTokenManager"/> field with the provided <paramref name="processTokenManager"/>. 
+        ''' It also initializes the <see cref="_tokenInformationHelper"/> field with the provided <paramref name="tokenInformationHelper"/>. 
+        ''' These services are used to interact with process tokens and retrieve token information, respectively.
         ''' </remarks>
-        Friend Sub New(tokenManager As ProcessTokenManager)
-            _processTokenManager = tokenManager
+        Public Sub New(processTokenManager As IProcessTokenManager, tokenInformationHelper As ITokenInformationHelper)
+            _processTokenManager = processTokenManager
+            _tokenInformationHelper = tokenInformationHelper
         End Sub
 
         ''' <summary>
@@ -61,7 +74,7 @@
         ''' If neither, it defaults to <see cref="UserAccountType.User"/>. The method returns a <see cref="UserAccountType"/> value representing the account type.
         ''' </remarks>
         ''' <exception cref="InvalidOperationException">Thrown when the process token cannot be opened.</exception>
-        Friend Function GetUserAccountType() As UserAccountType
+        Friend Function GetUserAccountType() As UserAccountType Implements IUserPrivilegesDeterminer.GetUserAccountType
             Dim tokenHandle As IntPtr = NativeMethods.NullHandleValue
             Try
                 If Not OpenProcessToken(tokenHandle) Then
@@ -89,7 +102,7 @@
         ''' <remarks>
         ''' This method attempts to open the process token for the current process using the <see cref="NativeMethods.OpenProcessToken"/> function.
         ''' </remarks>
-        Private Function OpenProcessToken(ByRef tokenHandle As IntPtr) As Boolean
+        Private Function OpenProcessToken(ByRef tokenHandle As IntPtr) As Boolean Implements IUserPrivilegesDeterminer.OpenProcessToken
             Return _processTokenManager.OpenProcessToken(NativeMethods.GetCurrentProcess(), AccessMask.TokenQuery, tokenHandle)
         End Function
 
@@ -103,8 +116,8 @@
         ''' <remarks>
         ''' This method checks if the specified token handle belongs to a system account by using the <see cref="SystemAccountChecker"/> class.
         ''' </remarks>
-        Private Function IsSystemAccount(tokenHandle As IntPtr) As Boolean
-            Dim systemChecker As New SystemAccountChecker(_processTokenManager)
+        Private Function IsSystemAccount(tokenHandle As IntPtr) As Boolean Implements IUserPrivilegesDeterminer.IsSystemAccount
+            Dim systemChecker As New SystemAccountChecker(_processTokenManager, _tokenInformationHelper)
             Return systemChecker.IsSystemAccount(tokenHandle)
         End Function
 
@@ -118,8 +131,8 @@
         ''' <remarks>
         ''' This method checks if the specified token handle belongs to an administrative account by using the <see cref="AdminAccountChecker"/> class.
         ''' </remarks>
-        Private Function IsAdminAccount(tokenHandle As IntPtr) As Boolean
-            Dim adminChecker As New AdminAccountChecker(_processTokenManager)
+        Private Function IsAdminAccount(tokenHandle As IntPtr) As Boolean Implements IUserPrivilegesDeterminer.IsAdminAccount
+            Dim adminChecker As New AdminAccountChecker(_processTokenManager, _tokenInformationHelper)
             Return adminChecker.IsAdminAccount(tokenHandle)
         End Function
     End Class

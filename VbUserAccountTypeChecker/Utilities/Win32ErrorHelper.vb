@@ -14,6 +14,7 @@
     ''' <a href="http://blogs.msdn.com/b/adam_nathan/archive/2003/04/25/56643.aspx">Original URL</a>.
     ''' </remarks>
     Friend Class Win32ErrorHelper
+        Implements IWin32ErrorHelper
 
         ''' <summary>
         ''' Retrieves the last Win32 error code.
@@ -26,7 +27,7 @@
         ''' of <c>GetLastError</c> immediately after the unmanaged API call completes, preventing 
         ''' overwrites by other system calls made by the CLR.
         ''' </remarks>
-        Friend Shared Function GetLastWin32Error() As Integer
+        Friend Function GetLastWin32Error() As Integer Implements IWin32ErrorHelper.GetLastWin32Error
             Return Marshal.GetLastWin32Error()
         End Function
     End Class

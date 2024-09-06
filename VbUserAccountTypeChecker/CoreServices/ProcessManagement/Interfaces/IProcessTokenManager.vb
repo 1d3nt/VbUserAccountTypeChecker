@@ -1,15 +1,9 @@
-﻿Namespace CoreServices.ProcessManagement
+﻿Namespace CoreServices.ProcessManagement.Interfaces
 
     ''' <summary>
-    ''' Provides methods for handling process token operations.
+    ''' Interface for managing process tokens.
     ''' </summary>
-    ''' <remarks>
-    ''' The <see cref="ProcessTokenManager"/> class includes methods to manage process tokens, 
-    ''' including opening a process token and retrieving information about the token. 
-    ''' These operations are useful for scenarios involving security contexts and access control.
-    ''' </remarks>
-    Public Class ProcessTokenManager
-        Implements IProcessTokenManager
+    Public Interface IProcessTokenManager
 
         ''' <summary>
         ''' Opens the process token.
@@ -31,15 +25,11 @@
         ''' This method uses the <see cref="NativeMethods.OpenProcessToken"/> function to obtain a handle to the process's token.
         ''' The token handle can be used for further operations such as querying or modifying token attributes.
         ''' </remarks>
-        ''' <remarks>
-        ''' This method is marked with a suppression attribute because ReSharper may incorrectly suggest 
-        ''' that the method should be marked as <c>Shared</c> (static). However, the method is not <c>Shared</c> 
-        ''' because it relies on instance-level operations and creating new instances of the class. Making it <c>Shared</c> 
-        ''' would prevent instance creation and break the intended functionality.
-        ''' </remarks>
-        Friend Function OpenProcessToken(processHandle As IntPtr, desiredAccess As AccessMask, ByRef tokenHandle As IntPtr) As Boolean Implements IProcessTokenManager.OpenProcessToken
-            Return NativeMethods.OpenProcessToken(processHandle, desiredAccess, tokenHandle)
-        End Function
+        ''' <returns>
+        ''' <c>True</c> if the token was opened successfully; otherwise, <c>false</c>. 
+        ''' The handle to the token is returned in the <paramref name="tokenHandle"/> parameter.
+        ''' </returns>
+        Function OpenProcessToken(processHandle As IntPtr, desiredAccess As AccessMask, ByRef tokenHandle As IntPtr) As Boolean
 
         ''' <summary>
         ''' Gets the token information.
@@ -66,14 +56,9 @@
         ''' This method uses the <see cref="NativeMethods.GetTokenInformation"/> function to retrieve specific information about a token.
         ''' The information class determines what kind of data is retrieved, such as token groups or privileges.
         ''' </remarks>
-        ''' <remarks>
-        ''' This method is marked with a suppression attribute because ReSharper may incorrectly suggest 
-        ''' that the method should be marked as <c>Shared</c> (static). However, the method is not <c>Shared</c> 
-        ''' because it relies on instance-level operations and creating new instances of the class. Making it <c>Shared</c> 
-        ''' would prevent instance creation and break the intended functionality.
-        ''' </remarks>
-        Friend Function GetTokenInformation(tokenHandle As IntPtr, tokenInformationClass As TokenInformationClass, tokenInformation As IntPtr, tokenInformationLength As UInteger, ByRef returnLength As UInteger) As Boolean Implements IProcessTokenManager.GetTokenInformation
-            Return NativeMethods.GetTokenInformation(tokenHandle, tokenInformationClass, tokenInformation, tokenInformationLength, returnLength)
-        End Function
-    End Class
+        ''' <returns>
+        ''' <c>True</c> if the token information was retrieved successfully; otherwise, <c>false</c>.
+        ''' </returns>
+        Function GetTokenInformation(tokenHandle As IntPtr, tokenInformationClass As TokenInformationClass, tokenInformation As IntPtr, tokenInformationLength As UInteger, ByRef returnLength As UInteger) As Boolean
+    End Interface
 End Namespace

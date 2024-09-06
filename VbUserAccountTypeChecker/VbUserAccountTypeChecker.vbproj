@@ -5,26 +5,33 @@
     <RootNamespace>VbUserAccountTypeChecker</RootNamespace>
     <TargetFramework>net8.0</TargetFramework>
     <OptionStrict>On</OptionStrict>
-    <ImportedNamespaces>JetBrains.Annotations=False,System.Diagnostics.CodeAnalysis=False,System.Runtime.InteropServices=False,System.Runtime.Versioning=False,System.Security.Principal=False,VbUserAccountTypeChecker.CoreServices.ProcessManagement=False,VbUserAccountTypeChecker.CoreServices.ProcessManagement.Enums=False,VbUserAccountTypeChecker.CoreServices.WindowsApiInterop.Enums=False,VbUserAccountTypeChecker.CoreServices.WindowsApiInterop.Methods=False,VbUserAccountTypeChecker.CoreServices.WindowsApiInterop.Structs=False,VbUserAccountTypeChecker.Utilities=False,Microsoft.VisualBasic=True,System=True,System.Collections=True,System.Collections.Generic=True,System.Diagnostics=True,System.Linq=True,System.Xml.Linq=True,System.Threading.Tasks=True,VbUserAccountTypeChecker=True</ImportedNamespaces>
+    <ImportedNamespaces>JetBrains.Annotations=False,Microsoft.Extensions.DependencyInjection=False,Microsoft.Extensions.DependencyInjection.Extensions=False,System.Diagnostics.CodeAnalysis=False,System.Runtime.InteropServices=False,System.Runtime.Versioning=False,System.Security.Principal=False,VbUserAccountTypeChecker.CoreServices.ProcessManagement=False,VbUserAccountTypeChecker.CoreServices.ProcessManagement.Enums=False,VbUserAccountTypeChecker.CoreServices.ProcessManagement.Interfaces=False,VbUserAccountTypeChecker.CoreServices.WindowsApiInterop.Enums=False,VbUserAccountTypeChecker.CoreServices.WindowsApiInterop.Methods=False,VbUserAccountTypeChecker.CoreServices.WindowsApiInterop.Structs=False,VbUserAccountTypeChecker.Utilities=False,VbUserAccountTypeChecker.Utilities.Interfaces=False,Microsoft.VisualBasic=True,System=True,System.Collections=True,System.Collections.Generic=True,System.Diagnostics=True,System.Linq=True,System.Xml.Linq=True,System.Threading.Tasks=True,VbUserAccountTypeChecker=True</ImportedNamespaces>
     <ApplicationManifest>app.manifest</ApplicationManifest>
+    <Copyright>Simple Coders</Copyright>
+	<SupportedOSPlatform>Windows10.0</SupportedOSPlatform>
   </PropertyGroup>
 
   <ItemGroup>
     <Import Include="JetBrains.Annotations" />
+    <Import Include="Microsoft.Extensions.DependencyInjection" />
+    <Import Include="Microsoft.Extensions.DependencyInjection.Extensions" />
     <Import Include="System.Diagnostics.CodeAnalysis" />
     <Import Include="System.Runtime.InteropServices" />
     <Import Include="System.Runtime.Versioning" />
     <Import Include="System.Security.Principal" />
     <Import Include="VbUserAccountTypeChecker.CoreServices.ProcessManagement" />
     <Import Include="VbUserAccountTypeChecker.CoreServices.ProcessManagement.Enums" />
+    <Import Include="VbUserAccountTypeChecker.CoreServices.ProcessManagement.Interfaces" />
     <Import Include="VbUserAccountTypeChecker.CoreServices.WindowsApiInterop.Enums" />
     <Import Include="VbUserAccountTypeChecker.CoreServices.WindowsApiInterop.Methods" />
     <Import Include="VbUserAccountTypeChecker.CoreServices.WindowsApiInterop.Structs" />
     <Import Include="VbUserAccountTypeChecker.Utilities" />
+    <Import Include="VbUserAccountTypeChecker.Utilities.Interfaces" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="JetBrains.Annotations" Version="2024.2.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
   </ItemGroup>
 
 </Project>

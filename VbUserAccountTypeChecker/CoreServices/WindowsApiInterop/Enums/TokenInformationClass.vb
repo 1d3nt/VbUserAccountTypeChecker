@@ -73,7 +73,7 @@
     ''' Note: The <c>&lt;UsedImplicitly&gt;</c> attribute is applied to some members of this enumeration to indicate that 
     ''' while they may not be directly referenced in the code, they are retained for completeness and potential future use.
     ''' </remarks>
-    Friend Enum TokenInformationClass
+    Public Enum TokenInformationClass
 
         ''' <summary>
         ''' The buffer receives a <c>TokenUser</c> structure that contains the user account associated with the access token.
