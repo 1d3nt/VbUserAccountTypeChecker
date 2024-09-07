@@ -6,9 +6,13 @@
 
 ## Background
 
-In a previous project, **VbWorkerServicePinvokeLauncher**, we demonstrated using P/Invoke to duplicate process tokens and launch processes with elevated privileges or different user contexts. For testing purposes, that project utilized Windows Principal to determine the account type of the launched process.
+The `VbUserAccountTypeChecker` project builds upon the approach established in the `VbWorkerServicePinvokeLauncher` project. It is a .NET 8.0 application developed in Visual Basic that leverages P/Invoke to interact with Windows API functions.
 
-To provide a more complete example and showcase the use of P/Invoke for querying user account types directly, **VbUserAccountTypeChecker** was developed. This application replaces the Windows Principal approach with a full P/Invoke implementation to check the account type of the running process.
+The `VbWorkerServicePinvokeLauncher` project involved launching processes under specific user accounts, including the SYSTEM account, by duplicating process tokens using P/Invoke. This project served as a practical implementation of P/Invoke to manage different user contexts and elevated privileges.
+
+Building on this foundation, `VbUserAccountTypeChecker` was created to determine the type of user account under which the current process is running. Unlike the previous project, which focused on launching processes, this tool is dedicated to querying process tokens and performing low-level checks to identify whether the account is a system account, administrative account, or a standard user account.
+
+The key focus of `VbUserAccountTypeChecker` is to provide a precise and efficient method for account type determination directly through Windows API calls. This aligns with the use of P/Invoke demonstrated in `VbWorkerServicePinvokeLauncher`, emphasizing a consistent approach to handling Windows-specific functionalities across different types of applications.
 
 ## Features
 
