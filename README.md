@@ -4,6 +4,8 @@
 
 **VbUserAccountTypeChecker** is a VB.NET application that uses P/Invoke to determine the type of user account (system, admin, or user) under which the current process is running. This tool interacts directly with Windows API functions to provide detailed information about the privileges of the running application. It is designed for Windows 10 and later versions.
 
+In addition to leveraging P/Invoke, **VbUserAccountTypeChecker** utilizes dependency injection to manage its service dependencies. This approach ensures that services such as process token management, user privilege determination, and error handling are decoupled and easily testable. The application is configured to use .NET's built-in dependency injection framework, which allows for flexible and maintainable code by injecting the required services at runtime. This design pattern aligns with modern software development practices and enhances the application's overall architecture.
+
 ## Background
 
 The `VbUserAccountTypeChecker` project builds upon the approach established in the `VbWorkerServicePinvokeLauncher` project. It is a .NET 8.0 application developed in Visual Basic that leverages P/Invoke to interact with Windows API functions.
@@ -19,6 +21,7 @@ The key focus of `VbUserAccountTypeChecker` is to provide a precise and efficien
 - Determine the type of user account for the current process.
 - Utilize P/Invoke to interact with Windows APIs.
 - Output account type information: SYSTEM, ADMIN, or USER.
+- Employ dependency injection for flexible and maintainable service management, including process token management, user privilege determination, and error handling.
 
 ## Installation
 
