@@ -50,15 +50,7 @@
     '''     </description>
     '''   </item>
     ''' </list>
-    ''' 
-    ''' The <see cref="SupportedOSPlatformAttribute"/> specifies the platform on which the code is expected to run. 
-    ''' In this case, it indicates that the code is intended to run on Windows platforms.
-    ''' 
-    ''' The code is specifically designed for Windows 10 and later versions. This ensures compatibility with modern Windows 
-    ''' features and API levels. For more details on the attribute, visit the 
-    ''' <see href="https://learn.microsoft.com/en-us/dotnet/api/system.runtime.versioning.supportedosplatformattribute?view=net-8.0">official documentation</see>.
     ''' </remarks>
-    <SupportedOSPlatform("Windows10.0")>
     Friend Class ServiceConfigurator
 
         ''' <summary>

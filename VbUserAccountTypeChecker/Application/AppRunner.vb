@@ -8,7 +8,7 @@
     ''' which is used to retrieve services throughout the application. The main functionality of the class is to 
     ''' retrieve the <see cref="IUserAccountService"/> service and use it to display the user's account type.
     ''' </remarks>
-    Public Class AppRunner
+    Friend Class AppRunner
 
         ''' <summary>
         ''' The service provider used for retrieving services.
@@ -26,7 +26,7 @@
         ''' <see cref="_serviceProvider"/> field. This service provider is used throughout the class to obtain 
         ''' necessary services.
         ''' </remarks>
-        Public Sub New(serviceProvider As IServiceProvider)
+        Friend Sub New(serviceProvider As IServiceProvider)
             _serviceProvider = serviceProvider
         End Sub
 
@@ -38,8 +38,8 @@
         ''' uses it to get the friendly user account type, and prints it to the console. The method then waits 
         ''' for the user to press Enter before terminating.
         ''' </remarks>
-        Public Sub Run()
-            Dim userAccountService As IUserAccountService = _serviceProvider.GetService(Of IUserAccountService)()
+        Friend Sub Run()
+            Dim userAccountService = _serviceProvider.GetService(Of IUserAccountService)()
             Dim friendlyAccountType As String = userAccountService.GetFriendlyUserAccountType()
             Console.WriteLine($"You are running as: {friendlyAccountType}")
             Console.ReadLine()

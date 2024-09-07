@@ -65,7 +65,7 @@
         ''' it reallocates memory based on the required size and retries the retrieval.
         ''' </remarks>
         Friend Function TryGetTokenInformation(tokenManager As IProcessTokenManager, tokenHandle As IntPtr, tokenInfoClass As TokenInformationClass, ByRef dwSize As UInteger, ByRef tokenInfo As IntPtr) As Boolean Implements ITokenInformationHelper.TryGetTokenInformation
-            If Not tokenManager.GetTokenInformation(tokenHandle, tokenInfoClass, NativeMethods.NullHandleValue, 0, dwSize) AndAlso _win32ErrorHelper.GetLastWin32Error() = Win32Error.ErrorInsufficientBuffer Then
+            If NeedsBufferResize(tokenManager, tokenHandle, tokenInfoClass, dwSize) Then
                 tokenInfo = Marshal.AllocHGlobal(CInt(dwSize))
                 Try
                     If tokenManager.GetTokenInformation(tokenHandle, tokenInfoClass, tokenInfo, dwSize, dwSize) Then
@@ -79,6 +79,26 @@
                 End Try
             End If
             Return False
+        End Function
+
+        ''' <summary>
+        ''' Determines if the buffer needs to be resized based on the token information retrieval result.
+        ''' </summary>
+        ''' <param name="tokenManager">The token manager responsible for handling token operations.</param>
+        ''' <param name="tokenHandle">The handle to the token.</param>
+        ''' <param name="tokenInfoClass">The class of the token information being queried.</param>
+        ''' <param name="dwSize">The size of the buffer required to hold the token information.</param>
+        ''' <returns>
+        ''' <c>True</c> if the buffer needs to be resized; otherwise, <c>False</c>.
+        ''' </returns>
+        ''' <remarks>
+        ''' This function checks if the initial call to <see cref="IProcessTokenManager.GetTokenInformation"/> 
+        ''' fails due to an insufficient buffer size. If the error code returned by the last Win32 error 
+        ''' is <see cref="Win32Error.ErrorInsufficientBuffer"/>, it indicates that the buffer needs to be resized.
+        ''' </remarks>
+        Private Function NeedsBufferResize(tokenManager As IProcessTokenManager, tokenHandle As IntPtr, tokenInfoClass As TokenInformationClass, ByRef dwSize As UInteger) As Boolean
+            Return Not tokenManager.GetTokenInformation(tokenHandle, tokenInfoClass, NativeMethods.NullHandleValue, 0, dwSize) AndAlso
+                   _win32ErrorHelper.GetLastWin32Error() = Win32Error.ErrorInsufficientBuffer
         End Function
     End Class
 End Namespace

@@ -187,7 +187,7 @@
         ''' <para>Note: The <see cref="IsUserAnAdmin"/> function is deprecated in newer Windows versions and may not be available. 
         ''' While it is no longer recommended for use in modern applications, it is retained here for completeness and relevance to the project's objectives. 
         ''' Although it is not currently used in the project, it has been kept for reference and potential future use based on the project's goals and requirements. 
-        ''' It is marked as <c>&lt;UsedImplicitly&gt;</c> to indicate its purpose and possible future utility.</para>
+        ''' It is marked as <see cref="UsedImplicitlyAttribute"/> to indicate its purpose and possible future utility.</para>
         ''' 
         ''' <para>For more details, refer to the <see href="https://learn.microsoft.com/en-us/windows/win32/api/shlobj_core/nf-shlobj_core-isuseranadmin">IsUserAnAdmin</see> documentation.</para>
         ''' </remarks>

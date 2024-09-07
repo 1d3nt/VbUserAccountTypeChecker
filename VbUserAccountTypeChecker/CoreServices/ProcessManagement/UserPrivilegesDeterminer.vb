@@ -4,14 +4,10 @@
     ''' Determines the type of user account under which the process is running.
     ''' </summary>
     ''' <remarks>
-    ''' The <see cref="SupportedOSPlatformAttribute"/> specifies the platform on which the code is expected to run. 
-    ''' In this case, it indicates that the code is intended to run on Windows platforms.
-    ''' 
-    ''' The code is specifically designed for Windows 10 and later versions. This ensures compatibility with modern Windows 
-    ''' features and API levels. For more details on the attribute, visit the 
-    ''' <see href="https://learn.microsoft.com/en-us/dotnet/api/system.runtime.versioning.supportedosplatformattribute?view=net-8.0">official documentation</see>.
+    ''' This class implements the <see cref="IUserPrivilegesDeterminer"/> interface and provides functionality 
+    ''' to determine the type of user account associated with the current process. It uses the <see cref="IProcessTokenManager"/> 
+    ''' to manage process tokens and the <see cref="ITokenInformationHelper"/> to retrieve token information.
     ''' </remarks>
-    <SupportedOSPlatform("windows10.0")>
     Public Class UserPrivilegesDeterminer
         Implements IUserPrivilegesDeterminer
 
@@ -35,6 +31,11 @@
         Private ReadOnly _tokenInformationHelper As ITokenInformationHelper
 
         ''' <summary>
+        ''' Dictionary mapping account type criteria to checking methods.
+        ''' </summary>
+        Private ReadOnly _criteriaMap As Dictionary(Of UserAccountType, Func(Of IntPtr, Boolean))
+
+        ''' <summary>
         ''' Initializes a new instance of the <see cref="UserPrivilegesDeterminer"/> class.
         ''' </summary>
         ''' <param name="processTokenManager">The process token manager.</param>
@@ -47,7 +48,21 @@
         Public Sub New(processTokenManager As IProcessTokenManager, tokenInformationHelper As ITokenInformationHelper)
             _processTokenManager = processTokenManager
             _tokenInformationHelper = tokenInformationHelper
+            _criteriaMap = CreateCriteriaMap()
         End Sub
+
+        ''' <summary>
+        ''' Creates and returns the criteria map with account type checking methods.
+        ''' </summary>
+        ''' <returns>
+        ''' A dictionary mapping <see cref="UserAccountType"/> to functions that check the account type.
+        ''' </returns>
+        Private Function CreateCriteriaMap() As Dictionary(Of UserAccountType, Func(Of IntPtr, Boolean))
+            Return New Dictionary(Of UserAccountType, Func(Of IntPtr, Boolean)) From {
+                    {UserAccountType.System, AddressOf IsSystemAccount},
+                    {UserAccountType.Admin, AddressOf IsAdminAccount}
+                }
+        End Function
 
         ''' <summary>
         ''' Determines the type of user account under which the process is running.
@@ -70,27 +85,33 @@
         ''' <remarks>
         ''' This method checks the type of user account under which the process is running by querying the process's security token.
         ''' It first attempts to open the process token using the <see cref="OpenProcessToken"/> method.
-        ''' If the token is successfully obtained, it checks if the account is a system account or an administrative account.
-        ''' If neither, it defaults to <see cref="UserAccountType.User"/>. The method returns a <see cref="UserAccountType"/> value representing the account type.
+        ''' If the token is successfully obtained, it checks the account type using a dictionary-based approach.
+        ''' If none of the criteria match, it defaults to <see cref="UserAccountType.User"/>.
         ''' </remarks>
         ''' <exception cref="InvalidOperationException">Thrown when the process token cannot be opened.</exception>
         Friend Function GetUserAccountType() As UserAccountType Implements IUserPrivilegesDeterminer.GetUserAccountType
             Dim tokenHandle As IntPtr = NativeMethods.NullHandleValue
             Try
-                If Not OpenProcessToken(tokenHandle) Then
-                    Throw New InvalidOperationException("Failed to open process token.")
-                End If
-                If IsSystemAccount(tokenHandle) Then
-                    Return UserAccountType.System
-                End If
-                If IsAdminAccount(tokenHandle) Then
-                    Return UserAccountType.Admin
-                End If
+                ThrowIfInvalid(OpenProcessToken(tokenHandle))
+                For Each kvp In From kvp1 In _criteriaMap Where kvp1.Value.Invoke(tokenHandle)
+                    Return kvp.Key
+                Next
             Finally
                 HandleManager.CloseTokenHandleIfNotNull(tokenHandle)
             End Try
             Return UserAccountType.User
         End Function
+
+        ''' <summary>
+        ''' Throws an <see cref="InvalidOperationException"/> if the specified condition is false.
+        ''' </summary>
+        ''' <param name="condition">The condition to evaluate.</param>
+        ''' <exception cref="InvalidOperationException">Thrown when the condition is false.</exception>
+        Private shared Sub ThrowIfInvalid(condition As Boolean)
+            If Not condition Then
+                Throw New InvalidOperationException("Failed to open process token.")
+            End If
+        End Sub
 
         ''' <summary>
         ''' Opens the process token for the current process.

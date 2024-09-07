@@ -4,16 +4,11 @@
     ''' Provides services related to user account types.
     ''' </summary>
     ''' <remarks>
-    ''' This class encapsulates the logic for determining the user account type and converting it to a user-friendly string.
-    ''' The <see cref="SupportedOSPlatformAttribute"/> specifies the platform on which the code is expected to run. 
-    ''' In this case, it indicates that the code is intended to run on Windows platforms.
-    ''' 
-    ''' The code is specifically designed for Windows 10 and later versions. This ensures compatibility with modern Windows 
-    ''' features and API levels. For more details on the attribute, visit the 
-    ''' <see href="https://learn.microsoft.com/en-us/dotnet/api/system.runtime.versioning.supportedosplatformattribute?view=net-8.0">official documentation</see>.
+    ''' The <see cref="UserAccountService"/> class is responsible for determining and representing user account types.
+    ''' It uses other services to determine the privileges associated with the user account and converts these 
+    ''' account types into user-friendly strings.
     ''' </remarks>
-    <SupportedOSPlatform("Windows10.0")>
-    Public Class UserAccountService
+    Friend Class UserAccountService
         Implements IUserAccountService
 
         ''' <summary>
@@ -47,7 +42,7 @@
         ''' <remarks>
         ''' This method determines the user account type using the <see cref="IUserPrivilegesDeterminer"/> and converts it to a user-friendly string.
         ''' </remarks>
-        Public Function GetFriendlyUserAccountType() As String Implements IUserAccountService.GetFriendlyUserAccountType
+        Friend Function GetFriendlyUserAccountType() As String Implements IUserAccountService.GetFriendlyUserAccountType
             Dim accountType = _userPrivilegesDeterminer.GetUserAccountType()
             Return _userAccountTypeExtensions.ToFriendlyString(accountType)
         End Function

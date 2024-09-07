@@ -26,7 +26,7 @@
     ''' 
     ''' <para>
     ''' Note: Although many of these access rights may not be used in the current application, they have been migrated from another project 
-    ''' and are kept here for completeness and potential future use. Members marked with <c>&lt;UsedImplicitly&gt;</c> are not currently utilized 
+    ''' and are kept here for completeness and potential future use. Members marked with <see cref="UsedImplicitlyAttribute"/> are not currently utilized 
     ''' but are retained for reference and potential future needs based on the project's objectives.
     ''' </para>
     ''' 
@@ -51,7 +51,7 @@
         ''' <remarks>
         ''' This access right allows querying more detailed or sensitive information from an access token, such as privileges or owner details.
         ''' It corresponds to the <c>TOKEN_QUERY_INFORMATION</c> constant in C++.
-        ''' This member is marked with <c>&lt;UsedImplicitly&gt;</c> indicating it is not currently used but is retained for completeness.
+        ''' This member is marked with <see cref="UsedImplicitlyAttribute"/> indicating it is not currently used but is retained for completeness.
         ''' </remarks>
         <UsedImplicitly>
         QueryInformation = &H400
@@ -62,7 +62,7 @@
         ''' <remarks>
         ''' This access right allows creating a duplicate of the access token, which can be used to create a new process with the same security context.
         ''' It corresponds to the <c>TOKEN_DUPLICATE</c> constant in C++.
-        ''' This member is marked with <c>&lt;UsedImplicitly&gt;</c> indicating it is not currently used but is retained for completeness.
+        ''' This member is marked with <see cref="UsedImplicitlyAttribute"/> indicating it is not currently used but is retained for completeness.
         ''' </remarks>
         <UsedImplicitly>
         TokenDuplicate = &H2
@@ -73,7 +73,7 @@
         ''' <remarks>
         ''' This access right allows obtaining the highest level of permissions available for the token.
         ''' It corresponds to the <c>MAXIMUM_ALLOWED</c> constant in C++.
-        ''' This member is marked with <c>&lt;UsedImplicitly&gt;</c> indicating it is not currently used but is retained for completeness.
+        ''' This member is marked with <see cref="UsedImplicitlyAttribute"/> indicating it is not currently used but is retained for completeness.
         ''' </remarks>
         <UsedImplicitly>
         MaximumAllowed = &H2000000
@@ -84,7 +84,7 @@
         ''' <remarks>
         ''' This access right allows creating a new console session for the token, typically used when starting a new process.
         ''' It corresponds to the <c>TOKEN_CREATE_NEW_CONSOLE</c> constant in C++.
-        ''' This member is marked with <c>&lt;UsedImplicitly&gt;</c> indicating it is not currently used but is retained for completeness.
+        ''' This member is marked with <see cref="UsedImplicitlyAttribute"/> indicating it is not currently used but is retained for completeness.
         ''' </remarks>
         <UsedImplicitly>
         CreateNewConsole = &H10
@@ -94,7 +94,7 @@
         ''' </summary>
         ''' <remarks>
         ''' This access right allows setting the process priority class to normal when creating a process with this token.
-        ''' This member is marked with <c>&lt;UsedImplicitly&gt;</c> indicating it is not currently used but is retained for completeness.
+        ''' This member is marked with <see cref="UsedImplicitlyAttribute"/> indicating it is not currently used but is retained for completeness.
         ''' </remarks>
         <UsedImplicitly>
         NormalPriorityClass = &H20
@@ -104,7 +104,7 @@
         ''' </summary>
         ''' <remarks>
         ''' This access right allows specifying that standard handles should be inherited by the process when created.
-        ''' This member is marked with <c>&lt;UsedImplicitly&gt;</c> indicating it is not currently used but is retained for completeness.
+        ''' This member is marked with <see cref="UsedImplicitlyAttribute"/> indicating it is not currently used but is retained for completeness.
         ''' </remarks>
         <UsedImplicitly>
         StartFUseStdHandles = &H100
@@ -115,7 +115,7 @@
         ''' <remarks>
         ''' This access right allows querying a limited subset of information from a process, such as basic attributes.
         ''' It corresponds to the <c>PROCESS_QUERY_LIMITED_INFORMATION</c> constant in C++.
-        ''' This member is marked with <c>&lt;UsedImplicitly&gt;</c> indicating it is not currently used but is retained for completeness.
+        ''' This member is marked with <see cref="UsedImplicitlyAttribute"/> indicating it is not currently used but is retained for completeness.
         ''' </remarks>
         <UsedImplicitly>
         QueryLimitedInformation = &H1000

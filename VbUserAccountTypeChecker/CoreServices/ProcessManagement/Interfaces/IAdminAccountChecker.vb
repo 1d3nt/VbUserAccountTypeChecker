@@ -8,7 +8,7 @@
     ''' libraries, even if it appears unused in the current codebase. This helps prevent code analysis tools from incorrectly 
     ''' flagging the method as unused and suggesting its removal.
     ''' 
-    ''' In this context, <c>IsAdminAccount</c> may be invoked by external services or libraries that manage tokens, and 
+    ''' In this context, <see cref="UserPrivilegesDeterminer.IsAdminAccount"/>> may be invoked by external services or libraries that manage tokens, and 
     ''' therefore, it is necessary to annotate the method to ensure its inclusion and avoid premature optimization issues.
     ''' </remarks>
     Public Interface IAdminAccountChecker

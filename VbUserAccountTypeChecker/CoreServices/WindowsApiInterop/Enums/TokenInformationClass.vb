@@ -70,7 +70,7 @@
     ''' For more detailed information about each value, see the official Microsoft documentation:
     ''' <see href="https://learn.microsoft.com/en-us/windows/win32/api/winnt/ne-winnt-token_information_class">TOKEN_INFORMATION_CLASS</see>.
     ''' 
-    ''' Note: The <c>&lt;UsedImplicitly&gt;</c> attribute is applied to some members of this enumeration to indicate that 
+    ''' Note: The <see cref="UsedImplicitlyAttribute"/> attribute is applied to some members of this enumeration to indicate that 
     ''' while they may not be directly referenced in the code, they are retained for completeness and potential future use.
     ''' </remarks>
     Public Enum TokenInformationClass
@@ -89,7 +89,7 @@
         ''' The buffer receives a <c>TokenGroups</c> structure that contains the group security identifiers (SIDs) associated with the access token.
         ''' </summary>
         ''' <remarks>
-        ''' <see cref="TokenGroups"/> is marked with <c>&lt;UsedImplicitly&gt;</c> since it is not currently used but retained for completeness.
+        ''' <see cref="TokenGroups"/> is marked with <see cref="UsedImplicitlyAttribute"/> since it is not currently used but retained for completeness.
         ''' </remarks>
         <UsedImplicitly>
         TokenGroups
@@ -98,7 +98,7 @@
         ''' The buffer receives a <c>TokenPrivileges</c> structure that contains the privileges associated with the access token.
         ''' </summary>
         ''' <remarks>
-        ''' <see cref="TokenPrivileges"/> is marked with <c>&lt;UsedImplicitly&gt;</c> since it is not currently used but retained for completeness.
+        ''' <see cref="TokenPrivileges"/> is marked with <see cref="UsedImplicitlyAttribute"/> since it is not currently used but retained for completeness.
         ''' </remarks>
         <UsedImplicitly>
         TokenPrivileges
@@ -107,7 +107,7 @@
         ''' The buffer receives a <c>TokenOwner</c> structure that contains the default owner security identifier (SID) for newly created objects.
         ''' </summary>
         ''' <remarks>
-        ''' <see cref="TokenOwner"/> is marked with <c>&lt;UsedImplicitly&gt;</c> since it is not currently used but retained for completeness.
+        ''' <see cref="TokenOwner"/> is marked with <see cref="UsedImplicitlyAttribute"/> since it is not currently used but retained for completeness.
         ''' </remarks>
         <UsedImplicitly>
         TokenOwner
@@ -116,7 +116,7 @@
         ''' The buffer receives a <c>TokenPrimaryGroup</c> structure that contains the primary group SID for the access token.
         ''' </summary>
         ''' <remarks>
-        ''' <see cref="TokenPrimaryGroup"/> is marked with <c>&lt;UsedImplicitly&gt;</c> since it is not currently used but retained for completeness.
+        ''' <see cref="TokenPrimaryGroup"/> is marked with <see cref="UsedImplicitlyAttribute"/> since it is not currently used but retained for completeness.
         ''' </remarks>
         <UsedImplicitly>
         TokenPrimaryGroup
@@ -125,7 +125,7 @@
         ''' The buffer receives a <c>TokenDefaultDacl</c> structure that contains the default discretionary access control list (DACL) for the access token.
         ''' </summary>
         ''' <remarks>
-        ''' <see cref="TokenDefaultDacl"/> is marked with <c>&lt;UsedImplicitly&gt;</c> since it is not currently used but retained for completeness.
+        ''' <see cref="TokenDefaultDacl"/> is marked with <see cref="UsedImplicitlyAttribute"/> since it is not currently used but retained for completeness.
         ''' </remarks>
         <UsedImplicitly>
         TokenDefaultDacl
@@ -134,7 +134,7 @@
         ''' The buffer receives a <c>TokenSource</c> structure that contains the source of the access token.
         ''' </summary>
         ''' <remarks>
-        ''' <see cref="TokenSource"/> is marked with <c>&lt;UsedImplicitly&gt;</c> since it is not currently used but retained for completeness.
+        ''' <see cref="TokenSource"/> is marked with <see cref="UsedImplicitlyAttribute"/> since it is not currently used but retained for completeness.
         ''' </remarks>
         <UsedImplicitly>
         TokenSource
@@ -143,7 +143,7 @@
         ''' The buffer receives a <c>TokenType</c> value that indicates whether the token is a primary or impersonation token.
         ''' </summary>
         ''' <remarks>
-        ''' <see cref="TokenType"/> is marked with <c>&lt;UsedImplicitly&gt;</c> since it is not currently used but retained for completeness.
+        ''' <see cref="TokenType"/> is marked with <see cref="UsedImplicitlyAttribute"/> since it is not currently used but retained for completeness.
         ''' </remarks>
         <UsedImplicitly>
         TokenType
@@ -152,7 +152,7 @@
         ''' The buffer receives a <c>TokenImpersonationLevel</c> value that indicates the impersonation level of the token.
         ''' </summary>
         ''' <remarks>
-        ''' <see cref="TokenImpersonationLevel"/> is marked with <c>&lt;UsedImplicitly&gt;</c> since it is not currently used but retained for completeness.
+        ''' <see cref="TokenImpersonationLevel"/> is marked with <see cref="UsedImplicitlyAttribute"/> since it is not currently used but retained for completeness.
         ''' </remarks>
         <UsedImplicitly>
         TokenImpersonationLevel
@@ -161,7 +161,7 @@
         ''' The buffer receives a <c>TokenStatistics</c> structure that contains various token statistics.
         ''' </summary>
         ''' <remarks>
-        ''' <see cref="TokenStatistics"/> is marked with <c>&lt;UsedImplicitly&gt;</c> since it is not currently used but retained for completeness.
+        ''' <see cref="TokenStatistics"/> is marked with <see cref="UsedImplicitlyAttribute"/> since it is not currently used but retained for completeness.
         ''' </remarks>
         <UsedImplicitly>
         TokenStatistics
@@ -170,7 +170,7 @@
         ''' The buffer receives a <c>TokenRestrictedSids</c> structure that contains the list of restricted SIDs in the token.
         ''' </summary>
         ''' <remarks>
-        ''' <see cref="TokenRestrictedSids"/> is marked with <c>&lt;UsedImplicitly&gt;</c> since it is not currently used but retained for completeness.
+        ''' <see cref="TokenRestrictedSids"/> is marked with <see cref="UsedImplicitlyAttribute"/> since it is not currently used but retained for completeness.
         ''' </remarks>
         <UsedImplicitly>
         TokenRestrictedSids
@@ -179,7 +179,7 @@
         ''' The buffer receives a <c>TokenSessionId</c> value that contains the session ID associated with the token.
         ''' </summary>
         ''' <remarks>
-        ''' <see cref="TokenSessionId"/> is marked with <c>&lt;UsedImplicitly&gt;</c> since it is not currently used but retained for completeness.
+        ''' <see cref="TokenSessionId"/> is marked with <see cref="UsedImplicitlyAttribute"/> since it is not currently used but retained for completeness.
         ''' </remarks>
         <UsedImplicitly>
         TokenSessionId
@@ -188,7 +188,7 @@
         ''' The buffer receives a <c>TokenGroupsAndPrivileges</c> structure that contains information about the token's groups and privileges.
         ''' </summary>
         ''' <remarks>
-        ''' <see cref="TokenGroupsAndPrivileges"/> is marked with <c>&lt;UsedImplicitly&gt;</c> since it is not currently used but retained for completeness.
+        ''' <see cref="TokenGroupsAndPrivileges"/> is marked with <see cref="UsedImplicitlyAttribute"/> since it is not currently used but retained for completeness.
         ''' </remarks>
         <UsedImplicitly>
         TokenGroupsAndPrivileges
@@ -197,7 +197,7 @@
         ''' This value is reserved for internal use by the operating system.
         ''' </summary>
         ''' <remarks>
-        ''' <see cref="TokenSessionReference"/> is marked with <c>&lt;UsedImplicitly&gt;</c> since it is not currently used but retained for completeness.
+        ''' <see cref="TokenSessionReference"/> is marked with <see cref="UsedImplicitlyAttribute"/> since it is not currently used but retained for completeness.
         ''' </remarks>
         <UsedImplicitly>
         TokenSessionReference
@@ -206,7 +206,7 @@
         ''' The buffer receives a <c>TokenSandBoxInert</c> value that indicates whether the token is sandboxed.
         ''' </summary>
         ''' <remarks>
-        ''' <see cref="TokenSandBoxInert"/> is marked with <c>&lt;UsedImplicitly&gt;</c> since it is not currently used but retained for completeness.
+        ''' <see cref="TokenSandBoxInert"/> is marked with <see cref="UsedImplicitlyAttribute"/> since it is not currently used but retained for completeness.
         ''' </remarks>
         <UsedImplicitly>
         TokenSandBoxInert
@@ -215,7 +215,7 @@
         ''' The buffer receives a <c>TokenAuditPolicy</c> structure that contains the audit policy associated with the token.
         ''' </summary>
         ''' <remarks>
-        ''' <see cref="TokenAuditPolicy"/> is marked with <c>&lt;UsedImplicitly&gt;</c> since it is not currently used but retained for completeness.
+        ''' <see cref="TokenAuditPolicy"/> is marked with <see cref="UsedImplicitlyAttribute"/> since it is not currently used but retained for completeness.
         ''' </remarks>
         <UsedImplicitly>
         TokenAuditPolicy
@@ -224,7 +224,7 @@
         ''' The buffer receives a <c>TokenOrigin</c> structure that contains information about the origin of the token.
         ''' </summary>
         ''' <remarks>
-        ''' <see cref="TokenOrigin"/> is marked with <c>&lt;UsedImplicitly&gt;</c> since it is not currently used but retained for completeness.
+        ''' <see cref="TokenOrigin"/> is marked with <see cref="UsedImplicitlyAttribute"/> since it is not currently used but retained for completeness.
         ''' </remarks>
         <UsedImplicitly>
         TokenOrigin
@@ -233,7 +233,7 @@
         ''' The buffer receives a <c>TokenLinkedToken</c> structure that contains a handle to another token that is linked to the token being queried.
         ''' </summary>
         ''' <remarks>
-        ''' <see cref="TokenLinkedToken"/> is marked with <c>&lt;UsedImplicitly&gt;</c> since it is not currently used but retained for completeness.
+        ''' <see cref="TokenLinkedToken"/> is marked with <see cref="UsedImplicitlyAttribute"/> since it is not currently used but retained for completeness.
         ''' </remarks>
         <UsedImplicitly>
         TokenLinkedToken
@@ -242,7 +242,7 @@
         ''' The buffer receives a <c>TokenElevation</c> structure that indicates whether the token is elevated.
         ''' </summary>
         ''' <remarks>
-        ''' <see cref="TokenElevation"/> is marked with <c>&lt;UsedImplicitly&gt;</c> since it is not currently used but retained for completeness.
+        ''' <see cref="TokenElevation"/> is marked with <see cref="UsedImplicitlyAttribute"/> since it is not currently used but retained for completeness.
         ''' </remarks>
         <UsedImplicitly>
         TokenElevation
@@ -251,7 +251,7 @@
         ''' The buffer receives a <c>TokenHasRestrictions</c> value that indicates whether the token has any restrictions.
         ''' </summary>
         ''' <remarks>
-        ''' <see cref="TokenHasRestrictions"/> is marked with <c>&lt;UsedImplicitly&gt;</c> since it is not currently used but retained for completeness.
+        ''' <see cref="TokenHasRestrictions"/> is marked with <see cref="UsedImplicitlyAttribute"/> since it is not currently used but retained for completeness.
         ''' </remarks>
         <UsedImplicitly>
         TokenHasRestrictions
@@ -260,7 +260,7 @@
         ''' The buffer receives a <c>TokenAccessInformation</c> structure that contains access control information for the token.
         ''' </summary>
         ''' <remarks>
-        ''' <see cref="TokenAccessInformation"/> is marked with <c>&lt;UsedImplicitly&gt;</c> since it is not currently used but retained for completeness.
+        ''' <see cref="TokenAccessInformation"/> is marked with <see cref="UsedImplicitlyAttribute"/> since it is not currently used but retained for completeness.
         ''' </remarks>
         <UsedImplicitly>
         TokenAccessInformation
@@ -269,7 +269,7 @@
         ''' The buffer receives a <c>TokenVirtualizationAllowed</c> value that indicates whether virtualization is allowed for the token.
         ''' </summary>
         ''' <remarks>
-        ''' <see cref="TokenVirtualizationAllowed"/> is marked with <c>&lt;UsedImplicitly&gt;</c> since it is not currently used but retained for completeness.
+        ''' <see cref="TokenVirtualizationAllowed"/> is marked with <see cref="UsedImplicitlyAttribute"/> since it is not currently used but retained for completeness.
         ''' </remarks>
         <UsedImplicitly>
         TokenVirtualizationAllowed
@@ -278,7 +278,7 @@
         ''' The buffer receives a <c>TokenVirtualizationEnabled</c> value that indicates whether virtualization is enabled for the token.
         ''' </summary>
         ''' <remarks>
-        ''' <see cref="TokenVirtualizationEnabled"/> is marked with <c>&lt;UsedImplicitly&gt;</c> since it is not currently used but retained for completeness.
+        ''' <see cref="TokenVirtualizationEnabled"/> is marked with <see cref="UsedImplicitlyAttribute"/> since it is not currently used but retained for completeness.
         ''' </remarks>
         <UsedImplicitly>
         TokenVirtualizationEnabled
@@ -287,7 +287,7 @@
         ''' The buffer receives a <c>TokenIntegrityLevel</c> structure that contains the integrity level of the token.
         ''' </summary>
         ''' <remarks>
-        ''' <see cref="TokenIntegrityLevel"/> is marked with <c>&lt;UsedImplicitly&gt;</c> since it is not currently used but retained for completeness.
+        ''' <see cref="TokenIntegrityLevel"/> is marked with <see cref="UsedImplicitlyAttribute"/> since it is not currently used but retained for completeness.
         ''' </remarks>
         <UsedImplicitly>
         TokenIntegrityLevel
@@ -296,7 +296,7 @@
         ''' The buffer receives a <c>TokenUiAccess</c> value that indicates whether the token is allowed to interact with the user interface.
         ''' </summary>
         ''' <remarks>
-        ''' <see cref="TokenUiAccess"/> is marked with <c>&lt;UsedImplicitly&gt;</c> since it is not currently used but retained for completeness.
+        ''' <see cref="TokenUiAccess"/> is marked with <see cref="UsedImplicitlyAttribute"/> since it is not currently used but retained for completeness.
         ''' </remarks>
         <UsedImplicitly>
         TokenUiAccess
@@ -305,7 +305,7 @@
         ''' The buffer receives a <c>TokenMandatoryPolicy</c> structure that specifies the mandatory policy for the token.
         ''' </summary>
         ''' <remarks>
-        ''' <see cref="TokenMandatoryPolicy"/> is marked with <c>&lt;UsedImplicitly&gt;</c> since it is not currently used but retained for completeness.
+        ''' <see cref="TokenMandatoryPolicy"/> is marked with <see cref="UsedImplicitlyAttribute"/> since it is not currently used but retained for completeness.
         ''' </remarks>
         <UsedImplicitly>
         TokenMandatoryPolicy
@@ -314,7 +314,7 @@
         ''' The buffer receives a <c>TokenLogonSid</c> structure that contains the logon SID of the user associated with the token.
         ''' </summary>
         ''' <remarks>
-        ''' <see cref="TokenLogonSid"/> is marked with <c>&lt;UsedImplicitly&gt;</c> since it is not currently used but retained for completeness.
+        ''' <see cref="TokenLogonSid"/> is marked with <see cref="UsedImplicitlyAttribute"/> since it is not currently used but retained for completeness.
         ''' </remarks>
         <UsedImplicitly>
         TokenLogonSid
@@ -323,7 +323,7 @@
         ''' The buffer receives a <c>TokenIsAppContainer</c> value that indicates whether the token is associated with an AppContainer.
         ''' </summary>
         ''' <remarks>
-        ''' <see cref="TokenIsAppContainer"/> is marked with <c>&lt;UsedImplicitly&gt;</c> since it is not currently used but retained for completeness.
+        ''' <see cref="TokenIsAppContainer"/> is marked with <see cref="UsedImplicitlyAttribute"/> since it is not currently used but retained for completeness.
         ''' </remarks>
         <UsedImplicitly>
         TokenIsAppContainer
@@ -332,7 +332,7 @@
         ''' The buffer receives a <c>TokenCapabilities</c> structure that contains the capabilities associated with the token.
         ''' </summary>
         ''' <remarks>
-        ''' <see cref="TokenCapabilities"/> is marked with <c>&lt;UsedImplicitly&gt;</c> since it is not currently used but retained for completeness.
+        ''' <see cref="TokenCapabilities"/> is marked with <see cref="UsedImplicitlyAttribute"/> since it is not currently used but retained for completeness.
         ''' </remarks>
         <UsedImplicitly>
         TokenCapabilities
@@ -341,7 +341,7 @@
         ''' The buffer receives a <c>TokenAppContainerSid</c> structure that contains the AppContainer SID associated with the token.
         ''' </summary>
         ''' <remarks>
-        ''' <see cref="TokenAppContainerSid"/> is marked with <c>&lt;UsedImplicitly&gt;</c> since it is not currently used but retained for completeness.
+        ''' <see cref="TokenAppContainerSid"/> is marked with <see cref="UsedImplicitlyAttribute"/> since it is not currently used but retained for completeness.
         ''' </remarks>
         <UsedImplicitly>
         TokenAppContainerSid
@@ -350,7 +350,7 @@
         ''' The buffer receives a <c>TokenAppContainerNumber</c> value that indicates the AppContainer number associated with the token.
         ''' </summary>
         ''' <remarks>
-        ''' <see cref="TokenAppContainerNumber"/> is marked with <c>&lt;UsedImplicitly&gt;</c> since it is not currently used but retained for completeness.
+        ''' <see cref="TokenAppContainerNumber"/> is marked with <see cref="UsedImplicitlyAttribute"/> since it is not currently used but retained for completeness.
         ''' </remarks>
         <UsedImplicitly>
         TokenAppContainerNumber
@@ -359,7 +359,7 @@
         ''' The buffer receives a <c>TokenUserClaimAttributes</c> structure that specifies the security attributes for the token.
         ''' </summary>
         ''' <remarks>
-        ''' <see cref="TokenUserClaimAttributes"/> is marked with <c>&lt;UsedImplicitly&gt;</c> since it is not currently used but retained for completeness.
+        ''' <see cref="TokenUserClaimAttributes"/> is marked with <see cref="UsedImplicitlyAttribute"/> since it is not currently used but retained for completeness.
         ''' </remarks>
         <UsedImplicitly>
         TokenUserClaimAttributes
@@ -368,7 +368,7 @@
         ''' The buffer receives a <c>TokenDeviceClaimAttributes</c> structure that specifies the security attributes for the device.
         ''' </summary>
         ''' <remarks>
-        ''' <see cref="TokenDeviceClaimAttributes"/> is marked with <c>&lt;UsedImplicitly&gt;</c> since it is not currently used but retained for completeness.
+        ''' <see cref="TokenDeviceClaimAttributes"/> is marked with <see cref="UsedImplicitlyAttribute"/> since it is not currently used but retained for completeness.
         ''' </remarks>
         <UsedImplicitly>
         TokenDeviceClaimAttributes
@@ -377,7 +377,7 @@
         ''' The buffer receives a <c>TokenRestrictedUserClaimAttributes</c> structure that specifies the restricted security attributes for the user.
         ''' </summary>
         ''' <remarks>
-        ''' <see cref="TokenRestrictedUserClaimAttributes"/> is marked with <c>&lt;UsedImplicitly&gt;</c> since it is not currently used but retained for completeness.
+        ''' <see cref="TokenRestrictedUserClaimAttributes"/> is marked with <see cref="UsedImplicitlyAttribute"/> since it is not currently used but retained for completeness.
         ''' </remarks>
         <UsedImplicitly>
         TokenRestrictedUserClaimAttributes
@@ -386,7 +386,7 @@
         ''' The buffer receives a <c>TokenRestrictedDeviceClaimAttributes</c> structure that specifies the restricted security attributes for the device.
         ''' </summary>
         ''' <remarks>
-        ''' <see cref="TokenRestrictedDeviceClaimAttributes"/> is marked with <c>&lt;UsedImplicitly&gt;</c> since it is not currently used but retained for completeness.
+        ''' <see cref="TokenRestrictedDeviceClaimAttributes"/> is marked with <see cref="UsedImplicitlyAttribute"/> since it is not currently used but retained for completeness.
         ''' </remarks>
         <UsedImplicitly>
         TokenRestrictedDeviceClaimAttributes
@@ -395,7 +395,7 @@
         ''' The buffer receives a <c>TokenDeviceGroups</c> structure that contains the device groups associated with the token.
         ''' </summary>
         ''' <remarks>
-        ''' <see cref="TokenDeviceGroups"/> is marked with <c>&lt;UsedImplicitly&gt;</c> since it is not currently used but retained for completeness.
+        ''' <see cref="TokenDeviceGroups"/> is marked with <see cref="UsedImplicitlyAttribute"/> since it is not currently used but retained for completeness.
         ''' </remarks>
         <UsedImplicitly>
         TokenDeviceGroups
@@ -404,7 +404,7 @@
         ''' The buffer receives a <c>TokenRestrictedDeviceGroups</c> structure that contains the restricted device groups associated with the token.
         ''' </summary>
         ''' <remarks>
-        ''' <see cref="TokenRestrictedDeviceGroups"/> is marked with <c>&lt;UsedImplicitly&gt;</c> since it is not currently used but retained for completeness.
+        ''' <see cref="TokenRestrictedDeviceGroups"/> is marked with <see cref="UsedImplicitlyAttribute"/> since it is not currently used but retained for completeness.
         ''' </remarks>
         <UsedImplicitly>
         TokenRestrictedDeviceGroups
@@ -413,7 +413,7 @@
         ''' The buffer receives a <c>TokenSecurityAttributes</c> structure that specifies the security attributes for the token.
         ''' </summary>
         ''' <remarks>
-        ''' <see cref="TokenSecurityAttributes"/> is marked with <c>&lt;UsedImplicitly&gt;</c> since it is not currently used but retained for completeness.
+        ''' <see cref="TokenSecurityAttributes"/> is marked with <see cref="UsedImplicitlyAttribute"/> since it is not currently used but retained for completeness.
         ''' </remarks>
         <UsedImplicitly>
         TokenSecurityAttributes
@@ -422,7 +422,7 @@
         ''' The buffer receives a <c>TokenIsRestricted</c> value that indicates whether the token has restrictions.
         ''' </summary>
         ''' <remarks>
-        ''' <see cref="TokenIsRestricted"/> is marked with <c>&lt;UsedImplicitly&gt;</c> since it is not currently used but retained for completeness.
+        ''' <see cref="TokenIsRestricted"/> is marked with <see cref="UsedImplicitlyAttribute"/> since it is not currently used but retained for completeness.
         ''' </remarks>
         <UsedImplicitly>
         TokenIsRestricted
@@ -431,7 +431,7 @@
         ''' The buffer receives a <c>TokenProcessTrustLevel</c> structure that contains the process trust level associated with the token.
         ''' </summary>
         ''' <remarks>
-        ''' <see cref="TokenProcessTrustLevel"/> is marked with <c>&lt;UsedImplicitly&gt;</c> since it is not currently used but retained for completeness.
+        ''' <see cref="TokenProcessTrustLevel"/> is marked with <see cref="UsedImplicitlyAttribute"/> since it is not currently used but retained for completeness.
         ''' </remarks>
         <UsedImplicitly>
         TokenProcessTrustLevel
@@ -440,7 +440,7 @@
         ''' The buffer receives a <c>TokenPrivateNameSpace</c> structure that specifies the private namespace information associated with the token.
         ''' </summary>
         ''' <remarks>
-        ''' <see cref="TokenPrivateNameSpace"/> is marked with <c>&lt;UsedImplicitly&gt;</c> since it is not currently used but retained for completeness.
+        ''' <see cref="TokenPrivateNameSpace"/> is marked with <see cref="UsedImplicitlyAttribute"/> since it is not currently used but retained for completeness.
         ''' </remarks>
         <UsedImplicitly>
         TokenPrivateNameSpace
@@ -449,7 +449,7 @@
         ''' The buffer receives a <c>TokenSingletonAttributes</c> structure that specifies the singleton attributes associated with the token.
         ''' </summary>
         ''' <remarks>
-        ''' <see cref="TokenSingletonAttributes"/> is marked with <c>&lt;UsedImplicitly&gt;</c> since it is not currently used but retained for completeness.
+        ''' <see cref="TokenSingletonAttributes"/> is marked with <see cref="UsedImplicitlyAttribute"/> since it is not currently used but retained for completeness.
         ''' </remarks>
         <UsedImplicitly>
         TokenSingletonAttributes
@@ -458,7 +458,7 @@
         ''' The buffer receives a <c>TokenBnoIsolation</c> value that indicates whether the token is isolated in a BNO container.
         ''' </summary>
         ''' <remarks>
-        ''' <see cref="TokenBnoIsolation"/> is marked with <c>&lt;UsedImplicitly&gt;</c> since it is not currently used but retained for completeness.
+        ''' <see cref="TokenBnoIsolation"/> is marked with <see cref="UsedImplicitlyAttribute"/> since it is not currently used but retained for completeness.
         ''' </remarks>
         <UsedImplicitly>
         TokenBnoIsolation
@@ -467,7 +467,7 @@
         ''' The buffer receives a <c>TokenChildProcessFlags</c> value that contains the child process flags associated with the token.
         ''' </summary>
         ''' <remarks>
-        ''' <see cref="TokenChildProcessFlags"/> is marked with <c>&lt;UsedImplicitly&gt;</c> since it is not currently used but retained for completeness.
+        ''' <see cref="TokenChildProcessFlags"/> is marked with <see cref="UsedImplicitlyAttribute"/> since it is not currently used but retained for completeness.
         ''' </remarks>
         <UsedImplicitly>
         TokenChildProcessFlags
@@ -476,7 +476,7 @@
         ''' The buffer receives a <c>TokenIsLessPrivilegedAppContainer</c> value that indicates whether the token is a less privileged AppContainer.
         ''' </summary>
         ''' <remarks>
-        ''' <see cref="TokenIsLessPrivilegedAppContainer"/> is marked with <c>&lt;UsedImplicitly&gt;</c> since it is not currently used but retained for completeness.
+        ''' <see cref="TokenIsLessPrivilegedAppContainer"/> is marked with <see cref="UsedImplicitlyAttribute"/> since it is not currently used but retained for completeness.
         ''' </remarks>
         <UsedImplicitly>
         TokenIsLessPrivilegedAppContainer
@@ -485,7 +485,7 @@
         ''' The buffer receives a <c>TokenIsSandboxed</c> value that indicates whether the token is sandboxed.
         ''' </summary>
         ''' <remarks>
-        ''' <see cref="TokenIsSandboxed"/> is marked with <c>&lt;UsedImplicitly&gt;</c> since it is not currently used but retained for completeness.
+        ''' <see cref="TokenIsSandboxed"/> is marked with <see cref="UsedImplicitlyAttribute"/> since it is not currently used but retained for completeness.
         ''' </remarks>
         <UsedImplicitly>
         TokenIsSandboxed
@@ -494,7 +494,7 @@
         ''' The buffer receives a <c>TokenIsAppSilo</c> value that indicates whether the token is associated with an App Silo.
         ''' </summary>
         ''' <remarks>
-        ''' <see cref="TokenIsAppSilo"/> is marked with <c>&lt;UsedImplicitly&gt;</c> since it is not currently used but retained for completeness.
+        ''' <see cref="TokenIsAppSilo"/> is marked with <see cref="UsedImplicitlyAttribute"/> since it is not currently used but retained for completeness.
         ''' </remarks>
         <UsedImplicitly>
         TokenIsAppSilo
@@ -503,7 +503,7 @@
         ''' The buffer receives a <c>TokenLoggingInformation</c> structure that contains logging information associated with the token.
         ''' </summary>
         ''' <remarks>
-        ''' <see cref="TokenLoggingInformation"/> is marked with <c>&lt;UsedImplicitly&gt;</c> since it is not currently used but retained for completeness.
+        ''' <see cref="TokenLoggingInformation"/> is marked with <see cref="UsedImplicitlyAttribute"/> since it is not currently used but retained for completeness.
         ''' </remarks>
         <UsedImplicitly>
         TokenLoggingInformation
@@ -512,7 +512,7 @@
         ''' The maximum value for this enumeration. This value is reserved for system use only.
         ''' </summary>
         ''' <remarks>
-        ''' <see cref="MaxTokenInfoClass"/> is marked with <c>&lt;UsedImplicitly&gt;</c> since it is not currently used but retained for completeness.
+        ''' <see cref="MaxTokenInfoClass"/> is marked with <see cref="UsedImplicitlyAttribute"/> since it is not currently used but retained for completeness.
         ''' </remarks>
         <UsedImplicitly>
         MaxTokenInfoClass

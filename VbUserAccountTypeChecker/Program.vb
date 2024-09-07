@@ -19,15 +19,7 @@ Imports VbUserAccountTypeChecker.Application
 ''' Contributions and enhancements are welcomed to further extend the functionality and improve the integration.
 ''' 
 ''' Just a hobby programmer that enjoys P/Invoke.
-''' 
-''' The <see cref="SupportedOSPlatformAttribute"/> specifies the platform on which the code is expected to run. 
-''' In this case, it indicates that the code is intended to run on Windows platforms.
-''' 
-''' The code is specifically designed for Windows 10 and later versions. This ensures compatibility with modern Windows 
-''' features and API levels. For more details on the attribute, visit the 
-''' <see href="https://learn.microsoft.com/en-us/dotnet/api/system.runtime.versioning.supportedosplatformattribute?view=net-8.0">official documentation</see>.
 ''' </remarks>
-<SupportedOSPlatform("Windows10.0")>
 Module Program
 
     ''' <summary>
@@ -37,7 +29,7 @@ Module Program
     ''' <param name="args">Command-line arguments (not used).</param>
     ''' <remarks>
     ''' The <paramref name="args"/> parameter is included to adhere to the standard signature for a console application's 
-    ''' <c>Main</c> method. Although ReSharper sometimes flags this parameter as unused and suggests its removal, 
+    ''' <see cref="Main"/> method. Although ReSharper sometimes flags this parameter as unused and suggests its removal, 
     ''' it is considered best practice to include it for consistency and future-proofing. 
     ''' The <see cref="SuppressMessageAttribute"/> is used to prevent style warnings from suggesting 
     ''' its removal, even though the parameter is not utilized in this implementation.

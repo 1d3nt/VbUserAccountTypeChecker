@@ -12,7 +12,7 @@
     ''' or frameworks, even if it appears unused in the current codebase. This helps prevent code analysis tools from incorrectly 
     ''' flagging the method as unused and suggesting its removal.
     ''' 
-    ''' In this context, the <c>ToFriendlyString</c> method might be invoked by various components or services that need user-friendly 
+    ''' In this context, the <see cref="IUserAccountTypeExtensions.ToFriendlyString"/> method might be invoked by various components or services that need user-friendly 
     ''' descriptions of account types, and therefore, it is important to include it in the interface to ensure proper functionality 
     ''' and avoid issues with code analysis or optimization.
     ''' </remarks>
@@ -41,10 +41,10 @@
         ''' codebase, such as through reflection or by external libraries. This helps prevent issues with code analysis tools 
         ''' that may otherwise flag the method as unused.
         ''' 
-        ''' In this context, the <c>ToFriendlyString</c> method is essential for generating human-readable descriptions of account types, 
+        ''' In this context, the <see cref="ToFriendlyString"/> method is essential for generating human-readable descriptions of account types, 
         ''' which may be required by various parts of the application or external systems. Ensuring this method is properly documented 
         ''' and included in the interface helps maintain clarity and usability across the codebase.
-        ''' </remarks>#
+        ''' </remarks>
         <UsedImplicitly>
         Function ToFriendlyString(accountType As UserAccountType) As String
     End Interface
