@@ -74,8 +74,9 @@
                         Throw New InvalidOperationException("Failed to get token information.")
                     End If
                 Catch
-                    MemoryManager.FreeMemoryIfNotNull(tokenInfo)
                     Throw
+                Finally
+                    MemoryManager.FreeMemoryIfNotNull(tokenInfo)
                 End Try
             End If
             Return False
